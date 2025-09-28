@@ -1,40 +1,57 @@
 "use client";
 
-import Navbar from "./home/Navbar";
 import HomeSection from "./home/HomeSection";
 import About from "./About/About";
-import FeaturedProjects from "./FeaturedProjects/FeaturedProjects";
-import Achievements from "./Achievements/Achievements";
-import Footer from "./Footer/Footer";
-import Contact from "./Contact/Contact";
+import Services from "./Services/Services";
 import Skills from "./Skills/Skills";
-import Ventures from "./Ventures/Ventures";
+import Contact from "./Contact/Contact";
+import Footer from "./Footer/Footer";
+import Experience from "./Experiances/Experiances";
+import Education from "./Education/Education";
+import ProjectWorks from "./ProjectWorks/Projectworks";
+import Blog from "./Blog/Blog";
+
 
 export default function Home() {
   return (
     <div className="min-h-screen">
-      <Navbar />
-      <section id="home">
-        <HomeSection />
-      </section>
+      {/* Complete Home Section with integrated sidebar navigation */}
+      <HomeSection />
+      
+      {/* Other Sections */}
       <section id="about">
         <About />
       </section>
+      
+      <section id="services">
+        <Services />
+      </section>
+      
       <section id="skills">
         <Skills />
       </section>
+
+      <section id="education">
+        <Education />
+      </section>
+
+      <section id="experience">
+        <Experience />
+      </section>
+
       <section id="projects">
-        <FeaturedProjects />
+        <ProjectWorks />
       </section>
-      <section id="ventures">
-        <Ventures />
+      
+      <section id="blog">
+        <Blog />
       </section>
-      <section id="achievements">
-        <Achievements />
-      </section>
+          
+      
       <section id="contact">
         <Contact />
       </section>
+      
       <Footer />
     </div>
   );
