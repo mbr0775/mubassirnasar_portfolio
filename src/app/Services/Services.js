@@ -1,6 +1,10 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
+import { useRouter } from 'next/navigation';
+
+
+
 
 const Services = () => {
   const [visibleItems, setVisibleItems] = useState(new Set());
@@ -8,6 +12,7 @@ const Services = () => {
   const [hoveredCard, setHoveredCard] = useState(null);
   const headerRef = useRef(null);
   const itemRefs = useRef([]);
+  const router = useRouter();
 
   const services = [
     {
@@ -331,7 +336,10 @@ const Services = () => {
                       </div>
 
                       {/* Learn More Button */}
-                      <button className={`w-full py-3 px-4 border border-gray-600 text-gray-400 rounded-lg hover:border-transparent hover:text-white transition-all duration-300 relative overflow-hidden group/btn`}>
+                      <button 
+                        onClick={() => router.push(`/services/${service.id}`)}
+                        className={`w-full py-3 px-4 border border-gray-600 text-gray-400 rounded-lg hover:border-transparent hover:text-white transition-all duration-300 relative overflow-hidden group/btn`}
+                      >
                         <div className={`absolute inset-0 bg-gradient-to-r ${colors.gradient} opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300`}></div>
                         <span className="relative z-10 font-medium">Learn More</span>
                       </button>

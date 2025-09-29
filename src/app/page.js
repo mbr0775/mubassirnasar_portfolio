@@ -8,7 +8,7 @@ import Contact from "./Contact/Contact";
 import Footer from "./Footer/Footer";
 import Experience from "./Experiances/Experiances";
 import Education from "./Education/Education";
-import ProjectWorks from "./ProjectWorks/Projectworks";
+import ProjectWorks from "./ProjectWorks/ProjectsWorks";
 import Blog from "./Blog/Blog";
 
 

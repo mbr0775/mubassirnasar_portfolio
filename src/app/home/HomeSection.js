@@ -1,4 +1,9 @@
+"use client";
+
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
+
+import profileImage from '../assets/profile.jpg'; // Adjust the path if your component is in a different directory, e.g., '/public/profile.jpg' or './public/profile.jpg'
 
 export default function ResponsivePortfolio() {
   const [activeSection, setActiveSection] = useState('home');
@@ -26,8 +31,15 @@ export default function ResponsivePortfolio() {
   const scrollToSection = (sectionId) => {
     setActiveSection(sectionId);
     setIsMenuOpen(false); // Close menu on mobile after selection
-    // Simulate scrolling behavior
-    console.log(`Scrolling to ${sectionId}`);
+    
+    if (sectionId === 'home') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
   };
 
   const toggleMenu = () => {
@@ -41,7 +53,7 @@ export default function ResponsivePortfolio() {
     { id: 'skills', label: 'SKILLS', icon: '💻' },
     { id: 'education', label: 'EDUCATION', icon: '🎓' },
     { id: 'experience', label: 'EXPERIENCE', icon: '💼' },
-    { id: 'work', label: 'WORK', icon: '📁' },
+    { id: 'projects', label: 'WORK', icon: '📁' },
     { id: 'blog', label: 'BLOG', icon: '📝' },
     { id: 'contact', label: 'CONTACT', icon: '📧' },
   ];
@@ -59,8 +71,14 @@ export default function ResponsivePortfolio() {
       <header className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-sm border-b border-gray-800/50">
         <div className="flex items-center justify-between px-4 py-4">
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
-              <span className="text-white font-bold text-sm">MN</span>
+            <div className="relative w-10 h-10 rounded-full overflow-hidden ring-2 ring-gray-700 group-hover:ring-blue-500/50 transition-all duration-300">
+              <Image 
+                src={profileImage} 
+                alt="Mubassir Nasar" 
+                fill 
+                className="object-cover" 
+                priority 
+              />
             </div>
             <div>
               <h2 className="text-white font-semibold text-sm">Mubassir Nasar</h2>
@@ -137,8 +155,14 @@ export default function ResponsivePortfolio() {
             isLoaded ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-8 opacity-0 scale-90'
           }`}>
             <div className="relative group">
-              <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center ring-2 ring-gray-700 group-hover:ring-blue-500/50 transition-all duration-300 group-hover:scale-105">
-                <span className="text-white font-bold text-2xl">MN</span>
+              <div className="relative w-20 h-20 rounded-full overflow-hidden ring-2 ring-gray-700 group-hover:ring-blue-500/50 transition-all duration-300 group-hover:scale-105">
+                <Image 
+                  src={profileImage} 
+                  alt="Mubassir Nasar" 
+                  fill 
+                  className="object-cover" 
+                  priority 
+                />
               </div>
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 opacity-0 group-hover:opacity-20 animate-spin-slow"></div>
             </div>
@@ -216,7 +240,7 @@ export default function ResponsivePortfolio() {
               isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
             }`}>
               <button 
-                onClick={() => scrollToSection('work')}
+                onClick={() => scrollToSection('projects')}
                 className="relative border-2 border-gray-400 text-gray-400 px-6 md:px-10 py-3 md:py-4 font-medium hover:bg-transparent hover:text-white transition-all duration-500 uppercase tracking-widest text-xs md:text-sm inline-flex items-center gap-2 font-sans group overflow-hidden"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"></div>
@@ -245,8 +269,14 @@ export default function ResponsivePortfolio() {
           <div className={`relative w-full h-full transform transition-all duration-1000 delay-300 bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center ${
             isLoaded ? 'scale-100 opacity-100' : 'scale-105 opacity-0'
           }`}>
-            <div className="w-64 h-64 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-2xl">
-              <span className="text-white font-bold text-6xl">MN</span>
+            <div className="relative w-64 h-64 rounded-full overflow-hidden shadow-2xl">
+              <Image 
+                src={profileImage} 
+                alt="Mubassir Nasar" 
+                fill 
+                className="object-cover" 
+                priority 
+              />
             </div>
             
             {/* Floating elements */}
@@ -293,11 +323,11 @@ export default function ResponsivePortfolio() {
           aria-label="Go to About"
         ></button>
         <button 
-          onClick={() => scrollToSection('work')}
+          onClick={() => scrollToSection('projects')}
           className={`w-3 h-3 rounded-full transition-all duration-300 shadow-lg ${
-            activeSection === 'work' ? 'bg-blue-400 scale-125' : 'bg-gray-500 hover:bg-gray-400'
+            activeSection === 'projects' ? 'bg-blue-400 scale-125' : 'bg-gray-500 hover:bg-gray-400'
           }`}
-          aria-label="Go to Work"
+          aria-label="Go to Projects"
         ></button>
       </div>
 
