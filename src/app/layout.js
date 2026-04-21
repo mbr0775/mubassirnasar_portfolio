@@ -1,5 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "./context/ThemeContext";
+import ThemeToggle from "./ThemeToggle";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,7 +15,8 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "Mubassir Nasar - Portfolio",
-  description: "This is the portfolio website of Mubassir Nasar. A passionate web developer and designer. and a lifelong learner.",
+  description:
+    "This is the portfolio website of Mubassir Nasar. A passionate web developer and designer. and a lifelong learner.",
 };
 
 export default function RootLayout({ children }) {
@@ -22,7 +25,11 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <ThemeProvider>
+          {/* Global dark/light toggle — fixed top-right, always visible */}
+          <ThemeToggle />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
