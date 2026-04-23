@@ -2,17 +2,16 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 
@@ -23,52 +22,35 @@ export default function Navbar() {
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="bg-white border border-gray-200 rounded-lg shadow-md p-4">
               <div className="flex flex-col space-y-2">
+                <button onClick={() => { scrollToSection("home"); setIsOpen(false); }} className="w-full text-left text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium hover:bg-gray-100 py-2 px-4 rounded-md">Home</button>
+                <button onClick={() => { scrollToSection("about"); setIsOpen(false); }} className="w-full text-left text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium hover:bg-gray-100 py-2 px-4 rounded-md">About</button>
+                <button onClick={() => { scrollToSection("skills"); setIsOpen(false); }} className="w-full text-left text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium hover:bg-gray-100 py-2 px-4 rounded-md">Skills</button>
+                <button onClick={() => { scrollToSection("projects"); setIsOpen(false); }} className="w-full text-left text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium hover:bg-gray-100 py-2 px-4 rounded-md">Projects</button>
+                <button onClick={() => { scrollToSection("ventures"); setIsOpen(false); }} className="w-full text-left text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium hover:bg-gray-100 py-2 px-4 rounded-md">Ventures</button>
+                <button onClick={() => { scrollToSection("achievements"); setIsOpen(false); }} className="w-full text-left text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium hover:bg-gray-100 py-2 px-4 rounded-md">Achievements</button>
+                <button onClick={() => { scrollToSection("contact"); setIsOpen(false); }} className="w-full text-left text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium hover:bg-gray-100 py-2 px-4 rounded-md">Contact</button>
+
+                {/* Login — Mobile */}
                 <button
-                  onClick={() => { scrollToSection('home'); setIsOpen(false); }}
-                  className="w-full text-left text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium hover:bg-gray-100 py-2 px-4 rounded-md"
+                  onClick={() => { router.push("/login"); setIsOpen(false); }}
+                  className="w-full flex items-center gap-2 font-medium py-2 px-4 rounded-md transition-colors duration-200 hover:bg-gray-100"
+                  style={{ color: "#40513B" }}
                 >
-                  Home
+                  <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+                    <polyline points="10 17 15 12 10 7" />
+                    <line x1="15" y1="12" x2="3" y2="12" />
+                  </svg>
+                  Login
                 </button>
+
+                {/* Hire Me — Mobile */}
                 <button
-                  onClick={() => { scrollToSection('about'); setIsOpen(false); }}
-                  className="w-full text-left text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium hover:bg-gray-100 py-2 px-4 rounded-md"
-                >
-                  About
-                </button>
-                <button
-                  onClick={() => { scrollToSection('skills'); setIsOpen(false); }}
-                  className="w-full text-left text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium hover:bg-gray-100 py-2 px-4 rounded-md"
-                >
-                  Skills
-                </button>
-                <button
-                  onClick={() => { scrollToSection('projects'); setIsOpen(false); }}
-                  className="w-full text-left text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium hover:bg-gray-100 py-2 px-4 rounded-md"
-                >
-                  Projects
-                </button>
-                <button
-                  onClick={() => { scrollToSection('ventures'); setIsOpen(false); }}
-                  className="w-full text-left text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium hover:bg-gray-100 py-2 px-4 rounded-md"
-                >
-                  Ventures
-                </button>
-                <button
-                  onClick={() => { scrollToSection('achievements'); setIsOpen(false); }}
-                  className="w-full text-left text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium hover:bg-gray-100 py-2 px-4 rounded-md"
-                >
-                  Achievements
-                </button>
-                <button
-                  onClick={() => { scrollToSection('contact'); setIsOpen(false); }}
-                  className="w-full text-left text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium hover:bg-gray-100 py-2 px-4 rounded-md"
-                >
-                  Contact
-                </button>
-                {/* Hire Me Button in Mobile Menu */}
-                <button
-                  onClick={() => { scrollToSection('contact'); setIsOpen(false); }}
-                  className="w-full text-center bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-semibold py-2 px-4 rounded-md transition-colors duration-200 mt-2"
+                  onClick={() => { scrollToSection("contact"); setIsOpen(false); }}
+                  className="w-full text-center font-semibold py-2 px-4 rounded-md transition-colors duration-200 mt-2 text-white"
+                  style={{ background: "#40513B" }}
+                  onMouseEnter={e => e.currentTarget.style.background = "#2d3d29"}
+                  onMouseLeave={e => e.currentTarget.style.background = "#40513B"}
                 >
                   Hire Me
                 </button>
@@ -77,70 +59,63 @@ export default function Navbar() {
           </div>
         </div>
       )}
+
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
+
           {/* Logo */}
-          <Link href="/" className="text-xl font-bold text-gray-900">
-            Mubassir
-          </Link>
-          
-          {/* Navigation Links */}
+          <Link href="/" className="text-xl font-bold" style={{ color: "#40513B" }}>Mubassir</Link>
+
+          {/* Nav Links — Desktop */}
           <div className="hidden md:flex items-center space-x-8">
+            {["home", "about", "skills", "projects", "ventures", "achievements", "contact"].map((id) => (
+              <button
+                key={id}
+                onClick={() => scrollToSection(id)}
+                className="text-gray-600 font-medium text-sm capitalize transition-colors duration-200"
+                onMouseEnter={e => e.currentTarget.style.color = "#40513B"}
+                onMouseLeave={e => e.currentTarget.style.color = ""}
+              >
+                {id.charAt(0).toUpperCase() + id.slice(1)}
+              </button>
+            ))}
+
+            {/* Login — Desktop */}
             <button
-              onClick={() => scrollToSection('home')}
-              className="text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium"
+              onClick={() => router.push("/login")}
+              className="flex items-center gap-1.5 font-medium transition-all duration-200 group"
+              style={{ color: "#40513B" }}
             >
-              Home
-            </button>
-            <button
-              onClick={() => scrollToSection('about')}
-              className="text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium"
-            >
-              About
-            </button>
-            <button
-              onClick={() => scrollToSection('skills')}
-              className="text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium"
-            >
-              Skills
-            </button>
-            <button
-              onClick={() => scrollToSection('projects')}
-              className="text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium"
-            >
-              Projects
-            </button>
-            <button
-              onClick={() => scrollToSection('ventures')}
-              className="text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium"
-            >
-              Ventures
-            </button>
-            <button
-              onClick={() => scrollToSection('achievements')}
-              className="text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium"
-            >
-              Achievements
-            </button>
-            <button
-              onClick={() => scrollToSection('contact')}
-              className="text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium"
-            >
-              Contact
+              <span
+                className="flex items-center justify-center w-8 h-8 rounded-full border-2 transition-all duration-200"
+                style={{ borderColor: "#40513B" }}
+                onMouseEnter={e => { e.currentTarget.style.background = "#40513B"; e.currentTarget.style.color = "#fff"; }}
+                onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#40513B"; }}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+                  <polyline points="10 17 15 12 10 7" />
+                  <line x1="15" y1="12" x2="3" y2="12" />
+                </svg>
+              </span>
+              <span className="text-sm">Login</span>
             </button>
           </div>
-          
-          {/* Hire Me Button - Desktop */}
+
+          {/* Hire Me — Desktop */}
           <div className="hidden md:block">
             <button
-              onClick={() => scrollToSection('contact')}
-              className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-semibold px-6 py-2 rounded-lg transition-colors duration-200"
+              onClick={() => scrollToSection("contact")}
+              className="font-semibold px-6 py-2 rounded-lg transition-colors duration-200 text-white text-sm"
+              style={{ background: "#40513B" }}
+              onMouseEnter={e => e.currentTarget.style.background = "#2d3d29"}
+              onMouseLeave={e => e.currentTarget.style.background = "#40513B"}
             >
               Hire Me
             </button>
           </div>
-          
-          {/* Mobile menu button */}
+
+          {/* Hamburger — Mobile */}
           <button className="md:hidden p-2 text-gray-600" onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? (
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

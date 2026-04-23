@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import profileImage from '../assets/profile.jpg';
 
 export default function ResponsivePortfolio() {
@@ -9,6 +10,7 @@ export default function ResponsivePortfolio() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const router = useRouter();
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoaded(true), 100);
@@ -38,15 +40,15 @@ export default function ResponsivePortfolio() {
   };
 
   const menuItems = [
-    { id: 'home',       label: 'HOME',       icon: '🏠' },
-    { id: 'about',      label: 'ABOUT',      icon: '👤' },
-    { id: 'services',   label: 'SERVICES',   icon: '⚙️' },
-    { id: 'skills',     label: 'SKILLS',     icon: '💻' },
-    { id: 'education',  label: 'EDUCATION',  icon: '🎓' },
+    { id: 'home', label: 'HOME', icon: '🏠' },
+    { id: 'about', label: 'ABOUT', icon: '👤' },
+    { id: 'services', label: 'SERVICES', icon: '⚙️' },
+    { id: 'skills', label: 'SKILLS', icon: '💻' },
+    { id: 'education', label: 'EDUCATION', icon: '🎓' },
     { id: 'experience', label: 'EXPERIENCE', icon: '💼' },
-    { id: 'projects',   label: 'WORK',       icon: '📁' },
-    { id: 'blog',       label: 'BLOG',       icon: '📝' },
-    { id: 'contact',    label: 'CONTACT',    icon: '📧' },
+    { id: 'projects', label: 'WORK', icon: '📁' },
+    { id: 'blog', label: 'BLOG', icon: '📝' },
+    { id: 'contact', label: 'CONTACT', icon: '📧' },
   ];
 
   return (
@@ -54,12 +56,12 @@ export default function ResponsivePortfolio() {
 
       {/* Animated blobs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-32 md:w-64 h-32 md:h-64 bg-blue-500/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-48 md:w-96 h-48 md:h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
-        <div className="absolute top-1/2 left-1/2 w-16 md:w-32 h-16 md:h-32 bg-pink-500/10 rounded-full blur-2xl animate-pulse delay-500" />
+        <div className="absolute top-1/4 left-1/4 w-32 md:w-64 h-32 md:h-64 bg-[#313E17]/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-1/4 right-1/4 w-48 md:w-96 h-48 md:h-96 bg-[#313E17]/10 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div className="absolute top-1/2 left-1/2 w-16 md:w-32 h-16 md:h-32 bg-[#313E17]/10 rounded-full blur-2xl animate-pulse delay-500" />
       </div>
 
-      {/* Mobile Header */}
+      {/* ── Mobile Header ── */}
       <header className="lg:hidden fixed top-0 left-0 right-0 z-50 border-b transition-colors duration-500 bg-black/95 border-gray-800/50 mobile-header-light">
         <div className="flex items-center justify-between px-4 py-4">
           <div className="flex items-center space-x-3">
@@ -71,7 +73,11 @@ export default function ResponsivePortfolio() {
               <p className="text-xs text-gray-400 mobile-header-role">UI/UX Designer</p>
             </div>
           </div>
-          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="relative w-10 h-10 flex flex-col justify-center items-center space-y-1" aria-label="Toggle menu">
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="relative w-10 h-10 flex flex-col justify-center items-center space-y-1"
+            aria-label="Toggle menu"
+          >
             <span className={`block w-6 h-0.5 bg-white mobile-hamburger transition-all duration-300 transform origin-center ${isMenuOpen ? 'rotate-45 translate-y-1' : ''}`} />
             <span className={`block w-6 h-0.5 bg-white mobile-hamburger transition-all duration-300 ${isMenuOpen ? 'opacity-0' : 'opacity-100'}`} />
             <span className={`block w-6 h-0.5 bg-white mobile-hamburger transition-all duration-300 transform origin-center ${isMenuOpen ? '-rotate-45 -translate-y-1' : ''}`} />
@@ -79,7 +85,7 @@ export default function ResponsivePortfolio() {
         </div>
       </header>
 
-      {/* Mobile Menu Overlay */}
+      {/* ── Mobile Menu Overlay ── */}
       <div className={`lg:hidden fixed inset-0 z-40 transition-all duration-300 ${isMenuOpen ? 'visible opacity-100' : 'invisible opacity-0'}`}>
         <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={() => setIsMenuOpen(false)} />
         <div className={`absolute top-0 right-0 h-full w-80 max-w-full border-l transform transition-transform duration-300 bg-black/95 border-gray-800/50 mobile-menu-light ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
@@ -87,54 +93,130 @@ export default function ResponsivePortfolio() {
             <nav>
               <ul className="space-y-2">
                 {menuItems.map((item, index) => (
-                  <li key={item.id} className={`transform transition-all duration-300 ${isMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'}`} style={{ transitionDelay: `${index * 50}ms` }}>
+                  <li
+                    key={item.id}
+                    className={`transform transition-all duration-300 ${isMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'}`}
+                    style={{ transitionDelay: `${index * 50}ms` }}
+                  >
                     <button
                       onClick={() => scrollToSection(item.id)}
-                      className={`w-full flex items-center space-x-4 px-4 py-4 rounded-xl font-medium text-sm transition-all duration-300 ${activeSection === item.id ? 'text-white bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-500/30 mobile-menu-item-active' : 'text-gray-400 hover:text-white hover:bg-gray-800/50 mobile-menu-item'}`}
+                      className={`w-full flex items-center space-x-4 px-4 py-4 rounded-xl font-medium text-sm transition-all duration-300 ${
+                        activeSection === item.id
+                          ? 'text-white bg-[#313E17]/20 border border-[#313E17]/30 mobile-menu-item-active'
+                          : 'text-gray-400 hover:text-white hover:bg-gray-800/50 mobile-menu-item'
+                      }`}
                     >
                       <span className="text-xl">{item.icon}</span>
                       <span>{item.label}</span>
                     </button>
                   </li>
                 ))}
+
+                {/* ── LOGIN BUTTON — Mobile Menu ── */}
+                <li
+                  className={`transform transition-all duration-300 pt-2 ${isMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'}`}
+                  style={{ transitionDelay: `${menuItems.length * 50}ms` }}
+                >
+                  <div className="w-full h-px bg-gray-700 mb-3 mobile-divider" />
+                  <button
+                    onClick={() => {
+                      router.push('/login');
+                      setIsMenuOpen(false);
+                    }}
+                    className="w-full flex items-center space-x-4 px-4 py-4 rounded-xl font-semibold text-sm transition-all duration-300 text-white"
+                    style={{ background: "#313E17" }}
+                  >
+                    <span className="text-xl">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+                        <polyline points="10 17 15 12 10 7" />
+                        <line x1="15" y1="12" x2="3" y2="12" />
+                      </svg>
+                    </span>
+                    <span>LOGIN</span>
+                  </button>
+                </li>
               </ul>
             </nav>
           </div>
         </div>
       </div>
 
-      {/* Desktop Sidebar */}
+      {/* ── Desktop Sidebar ── */}
       <div className={`hidden lg:block w-64 fixed h-full left-0 top-0 z-10 border-r transition-all duration-1000 ease-out bg-black/95 border-gray-800/50 sidebar-light ${isLoaded ? 'translate-x-0' : '-translate-x-full'}`}>
         <div className="flex flex-col items-center py-12 px-6">
+
+          {/* Profile image */}
           <div className={`mb-4 relative transform transition-all duration-1000 delay-300 ${isLoaded ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-8 opacity-0 scale-90'}`}>
             <div className="relative w-20 h-20 rounded-full overflow-hidden ring-2 ring-gray-700 hover:scale-105 transition-all duration-300">
               <Image src={profileImage} alt="Mubassir Nasar" fill className="object-cover" priority />
             </div>
           </div>
+
+          {/* Name & role */}
           <div className={`mb-6 text-center transform transition-all duration-1000 delay-500 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
-            <h2 className="text-xl font-semibold text-white sidebar-name hover:text-blue-300 transition-colors duration-300">Mubassir Nasar</h2>
-            <p className="text-xs uppercase text-gray-400 sidebar-role font-medium tracking-wider mt-1">UI/UX Designer in Qatar | Sri Lanka</p>
+            <h2 className="text-xl font-semibold text-white sidebar-name hover:text-[#313E17] transition-colors duration-300">
+              Mubassir Nasar
+            </h2>
+            <p className="text-xs uppercase text-gray-400 sidebar-role font-medium tracking-wider mt-1">
+              UI/UX Designer in Qatar | Sri Lanka
+            </p>
           </div>
+
+          {/* Nav items */}
           <nav className="w-full flex-1">
             <ul className="space-y-1">
               {menuItems.map((item, index) => (
-                <li key={item.id} className={`transform transition-all duration-700 ${isLoaded ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'}`} style={{ transitionDelay: `${600 + index * 100}ms` }}>
+                <li
+                  key={item.id}
+                  className={`transform transition-all duration-700 ${isLoaded ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'}`}
+                  style={{ transitionDelay: `${600 + index * 100}ms` }}
+                >
                   <button
                     onClick={() => scrollToSection(item.id)}
-                    className={`relative w-full text-center py-3 font-medium text-sm transition-all duration-300 tracking-wider group overflow-hidden ${activeSection === item.id ? 'text-white sidebar-nav-active bg-gray-800/50' : 'text-gray-400 sidebar-nav-item hover:text-white hover:bg-gray-800/30'}`}
+                    className={`relative w-full text-center py-3 font-medium text-sm transition-all duration-300 tracking-wider group overflow-hidden ${
+                      activeSection === item.id
+                        ? 'text-white sidebar-nav-active bg-gray-800/50'
+                        : 'text-gray-400 sidebar-nav-item hover:text-white hover:bg-gray-800/30'
+                    }`}
                   >
-                    <div className={`absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 transform transition-transform duration-300 ${activeSection === item.id ? 'translate-x-0' : '-translate-x-full group-hover:translate-x-0'}`} />
+                    <div
+                      className={`absolute inset-0 bg-[#313E17]/20 transform transition-transform duration-300 ${
+                        activeSection === item.id ? 'translate-x-0' : '-translate-x-full group-hover:translate-x-0'
+                      }`}
+                    />
                     <span className="relative z-10">{item.label}</span>
-                    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 h-0.5 bg-gradient-to-r from-blue-400 to-purple-600 w-0 group-hover:w-3/4 transition-all duration-300" />
+                    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 h-0.5 bg-[#313E17] w-0 group-hover:w-3/4 transition-all duration-300" />
                   </button>
                 </li>
               ))}
             </ul>
+
+            {/* ── LOGIN BUTTON — Desktop Sidebar ── */}
+            <div
+              className={`mt-4 px-2 transform transition-all duration-700 ${isLoaded ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'}`}
+              style={{ transitionDelay: `${600 + menuItems.length * 100}ms` }}
+            >
+              <div className="w-full h-px bg-gray-700 mb-4 sidebar-divider" />
+              <button
+                onClick={() => router.push('/login')}
+                className="relative w-full flex items-center justify-center gap-2 py-3 rounded-lg font-semibold text-sm tracking-widest uppercase transition-all duration-300 text-white group overflow-hidden shadow-lg"
+                style={{ background: "#313E17" }}
+              >
+                <div className="absolute inset-0 bg-white/10 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out" />
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 relative z-10 group-hover:translate-x-0.5 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+                  <polyline points="10 17 15 12 10 7" />
+                  <line x1="15" y1="12" x2="3" y2="12" />
+                </svg>
+                <span className="relative z-10">Login</span>
+              </button>
+            </div>
           </nav>
         </div>
       </div>
 
-      {/* Main Content */}
+      {/* ── Main Content ── */}
       <div className="pt-20 lg:pt-0 lg:ml-64 min-h-screen flex flex-col lg:flex-row">
         <div className="flex-1 flex items-center justify-center px-6 lg:px-16 py-12 lg:py-0 relative z-10">
           <div className="max-w-lg w-full text-center lg:text-left">
@@ -143,23 +225,25 @@ export default function ResponsivePortfolio() {
                 <span className="inline-block">I am</span>
                 <br />
                 <span className="text-3xl md:text-4xl lg:text-6xl font-light">
-                  <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-gradient-x">
+                  <span className="bg-gradient-to-r from-[#313E17] via-[#313E17] to-[#313E17] bg-clip-text text-transparent animate-gradient-x">
                     a Creative Tech Expert
                   </span>
                 </span>
               </h1>
             </div>
+
             <div className={`transform transition-all duration-1000 delay-400 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
               <p className="mb-8 leading-relaxed text-sm md:text-base text-gray-400 hero-desc hover:text-gray-300 transition-colors duration-300">
                 Full Stack Dev, Mobile Apps, DevOps &amp; Digital Marketing Expert
               </p>
             </div>
+
             <div className={`transform transition-all duration-1000 delay-600 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
               <button
                 onClick={() => scrollToSection('projects')}
-                className="relative border-2 px-6 md:px-10 py-3 md:py-4 font-medium uppercase tracking-widest text-xs md:text-sm inline-flex items-center gap-2 group overflow-hidden transition-all duration-500 border-gray-400 text-gray-400 portfolio-btn"
+                className="relative border-2 px-6 md:px-10 py-3 md:py-4 font-medium uppercase tracking-widest text-xs md:text-sm inline-flex items-center gap-2 group overflow-hidden transition-all duration-500 border-[#313E17] text-[#313E17] portfolio-btn"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out" />
+                <div className="absolute inset-0 bg-[#313E17] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out" />
                 <span className="relative z-10 group-hover:text-white transition-colors duration-300">VIEW PORTFOLIO</span>
                 <svg className="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -172,16 +256,16 @@ export default function ResponsivePortfolio() {
         {/* Hero image */}
         <div className="hidden md:block w-full md:w-1/2 lg:w-1/2 relative overflow-hidden min-h-[50vh] lg:min-h-screen bg-gray-800 hero-image-bg">
           <div
-            className="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-purple-900/20 transition-transform duration-1000 ease-out"
+            className="absolute inset-0 bg-gradient-to-br from-[#313E17]/20 to-[#313E17]/10 transition-transform duration-1000 ease-out"
             style={{ transform: `translate(${(mousePosition.x - 50) * 0.02}px, ${(mousePosition.y - 50) * 0.02}px)` }}
           />
           <div className={`relative w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-700 to-gray-800 hero-photo-bg transition-all duration-1000 delay-300 ${isLoaded ? 'scale-100 opacity-100' : 'scale-105 opacity-0'}`}>
             <div className="relative w-64 h-64 rounded-full overflow-hidden shadow-2xl">
               <Image src={profileImage} alt="Mubassir Nasar" fill className="object-cover" priority />
             </div>
-            <div className="absolute top-1/4 left-1/4 w-4 h-4 bg-blue-400 rounded-full animate-bounce delay-100 shadow-lg" />
-            <div className="absolute top-3/4 right-1/4 w-3 h-3 bg-purple-400 rounded-full animate-bounce delay-300 shadow-lg" />
-            <div className="absolute top-1/2 left-1/6 w-2 h-2 bg-pink-400 rounded-full animate-bounce delay-500 shadow-lg" />
+            <div className="absolute top-1/4 left-1/4 w-4 h-4 bg-[#313E17] rounded-full animate-bounce delay-100 shadow-lg" />
+            <div className="absolute top-3/4 right-1/4 w-3 h-3 bg-[#313E17] rounded-full animate-bounce delay-300 shadow-lg" />
+            <div className="absolute top-1/2 left-1/6 w-2 h-2 bg-[#313E17] rounded-full animate-bounce delay-500 shadow-lg" />
           </div>
           <div className="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent" />
         </div>
@@ -190,13 +274,20 @@ export default function ResponsivePortfolio() {
       {/* Mobile nav dots */}
       <div className="md:hidden fixed bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3 z-30">
         {['home', 'about', 'projects'].map((id) => (
-          <button key={id} onClick={() => scrollToSection(id)} className={`w-3 h-3 rounded-full transition-all duration-300 shadow-lg ${activeSection === id ? 'bg-blue-400 scale-125' : 'bg-gray-500 hover:bg-gray-400'}`} aria-label={`Go to ${id}`} />
+          <button
+            key={id}
+            onClick={() => scrollToSection(id)}
+            className={`w-3 h-3 rounded-full transition-all duration-300 shadow-lg ${
+              activeSection === id ? 'bg-[#313E17] scale-125' : 'bg-gray-500 hover:bg-gray-400'
+            }`}
+            aria-label={`Go to ${id}`}
+          />
         ))}
       </div>
 
       <style jsx>{`
         :global(html:not(.dark)) .light-mode-bg {
-          background: linear-gradient(135deg, #f0f4ff 0%, #e8eeff 50%, #f5f0ff 100%) !important;
+          background: linear-gradient(135deg, #f6f8f1 0%, #eef2e5 50%, #f8faf4 100%) !important;
         }
         :global(html:not(.dark)) .mobile-header-light {
           background: rgba(255,255,255,0.95) !important;
@@ -211,6 +302,7 @@ export default function ResponsivePortfolio() {
         }
         :global(html:not(.dark)) .mobile-menu-item { color: #374151 !important; }
         :global(html:not(.dark)) .mobile-menu-item-active { color: #111827 !important; }
+        :global(html:not(.dark)) .mobile-divider { background: #e5e7eb !important; }
         :global(html:not(.dark)) .sidebar-light {
           background: rgba(255,255,255,0.98) !important;
           border-color: #e5e7eb !important;
@@ -223,15 +315,16 @@ export default function ResponsivePortfolio() {
           color: #111827 !important;
           background: rgba(243,244,246,0.8) !important;
         }
+        :global(html:not(.dark)) .sidebar-divider { background: #e5e7eb !important; }
         :global(html:not(.dark)) .hero-heading { color: #111827 !important; }
         :global(html:not(.dark)) .hero-desc { color: #4b5563 !important; }
         :global(html:not(.dark)) .portfolio-btn {
-          border-color: #374151 !important;
-          color: #374151 !important;
+          border-color: #313E17 !important;
+          color: #313E17 !important;
         }
-        :global(html:not(.dark)) .hero-image-bg { background: #e8eeff !important; }
+        :global(html:not(.dark)) .hero-image-bg { background: #eef2e5 !important; }
         :global(html:not(.dark)) .hero-photo-bg {
-          background: linear-gradient(135deg, #dbeafe, #ede9fe) !important;
+          background: linear-gradient(135deg, #e7edd8, #f2f6ea) !important;
         }
         @keyframes gradient-x {
           0%, 100% { background-size: 200% 200%; background-position: left center; }

@@ -22,6 +22,10 @@ export default function Home() {
       <section id="about">
         <About />
       </section>
+
+      <section id="projects">
+        <ProjectWorks />
+      </section>
       
       <section id="services">
         <Services />
@@ -39,9 +43,7 @@ export default function Home() {
         <Experience />
       </section>
 
-      <section id="projects">
-        <ProjectWorks />
-      </section>
+
       
       <section id="blog">
         <Blog />

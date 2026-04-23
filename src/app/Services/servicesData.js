@@ -15,7 +15,7 @@ export const services = [
       "UI/UX Design",
       "Performance Optimization"
     ],
-    color: "blue"
+    color: "primary"
   },
   {
     id: 2,
@@ -33,7 +33,7 @@ export const services = [
       "API Development",
       "Responsive Design"
     ],
-    color: "green"
+    color: "primary"
   },
   {
     id: 3,
@@ -51,7 +51,7 @@ export const services = [
       "Usability Testing",
       "Brand Identity"
     ],
-    color: "purple"
+    color: "primary"
   },
   {
     id: 4,
@@ -69,7 +69,7 @@ export const services = [
       "Infrastructure as Code",
       "Monitoring & Analytics"
     ],
-    color: "orange"
+    color: "primary"
   },
   {
     id: 5,
@@ -87,7 +87,7 @@ export const services = [
       "Email Campaigns",
       "Analytics & Reporting"
     ],
-    color: "pink"
+    color: "primary"
   },
   {
     id: 6,
@@ -105,51 +105,16 @@ export const services = [
       "Process Optimization",
       "Team Leadership"
     ],
-    color: "indigo"
+    color: "primary"
   }
 ];
 
 export const colorClasses = {
-  blue: {
-    gradient: "from-blue-500 to-blue-600",
-    hover: "hover:shadow-blue-500/25",
-    border: "border-blue-500/50",
-    icon: "text-blue-400",
-    iconHover: "group-hover:text-blue-300"
-  },
-  green: {
-    gradient: "from-green-500 to-green-600",
-    hover: "hover:shadow-green-500/25",
-    border: "border-green-500/50",
-    icon: "text-green-400",
-    iconHover: "group-hover:text-green-300"
-  },
-  purple: {
-    gradient: "from-purple-500 to-purple-600",
-    hover: "hover:shadow-purple-500/25",
-    border: "border-purple-500/50",
-    icon: "text-purple-400",
-    iconHover: "group-hover:text-purple-300"
-  },
-  orange: {
-    gradient: "from-orange-500 to-orange-600",
-    hover: "hover:shadow-orange-500/25",
-    border: "border-orange-500/50",
-    icon: "text-orange-400",
-    iconHover: "group-hover:text-orange-300"
-  },
-  pink: {
-    gradient: "from-pink-500 to-pink-600",
-    hover: "hover:shadow-pink-500/25",
-    border: "border-pink-500/50",
-    icon: "text-pink-400",
-    iconHover: "group-hover:text-pink-300"
-  },
-  indigo: {
-    gradient: "from-indigo-500 to-indigo-600",
-    hover: "hover:shadow-indigo-500/25",
-    border: "border-indigo-500/50",
-    icon: "text-indigo-400",
-    iconHover: "group-hover:text-indigo-300"
+  primary: {
+    gradient: "from-[#313E17] to-[#44561f]",
+    hover: "hover:shadow-[#313E17]/25",
+    border: "border-[#313E17]/50",
+    icon: "text-[#313E17]",
+    iconHover: "group-hover:text-[#44561f]"
   }
 };

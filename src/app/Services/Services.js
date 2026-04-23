@@ -18,7 +18,7 @@ const Services = () => {
       description: "Native iOS and Android applications with modern UI/UX design, cross-platform solutions using Flutter and React Native.",
       icon: (<svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>),
       features: ["iOS & Android Development", "Flutter & React Native", "App Store Deployment", "UI/UX Design", "Performance Optimization"],
-      color: "blue"
+      color: "primary"
     },
     {
       id: 2,
@@ -26,7 +26,7 @@ const Services = () => {
       description: "Full-stack web applications using modern frameworks like React, Next.js, Node.js with responsive design and optimal performance.",
       icon: (<svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>),
       features: ["React & Next.js", "Node.js & Express", "Database Integration", "API Development", "Responsive Design"],
-      color: "green"
+      color: "primary"
     },
     {
       id: 3,
@@ -34,7 +34,7 @@ const Services = () => {
       description: "User-centered design solutions with modern aesthetics, wireframing, prototyping, and comprehensive design systems.",
       icon: (<svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4 4 4 0 004-4V5z" /></svg>),
       features: ["User Research", "Wireframing & Prototyping", "Design Systems", "Usability Testing", "Brand Identity"],
-      color: "purple"
+      color: "primary"
     },
     {
       id: 4,
@@ -42,7 +42,7 @@ const Services = () => {
       description: "Scalable cloud infrastructure, CI/CD pipelines, containerization with Docker, and automated deployment solutions.",
       icon: (<svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" /></svg>),
       features: ["AWS & Azure Cloud", "Docker & Kubernetes", "CI/CD Pipelines", "Infrastructure as Code", "Monitoring & Analytics"],
-      color: "orange"
+      color: "primary"
     },
     {
       id: 5,
@@ -50,7 +50,7 @@ const Services = () => {
       description: "Data-driven marketing strategies, SEO optimization, social media campaigns, and performance analytics for business growth.",
       icon: (<svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>),
       features: ["SEO Optimization", "Social Media Marketing", "Content Strategy", "Email Campaigns", "Analytics & Reporting"],
-      color: "pink"
+      color: "primary"
     },
     {
       id: 6,
@@ -58,17 +58,18 @@ const Services = () => {
       description: "Technical consulting, project management, digital transformation strategies, and business process optimization.",
       icon: (<svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>),
       features: ["Technical Consulting", "Project Management", "Digital Strategy", "Process Optimization", "Team Leadership"],
-      color: "indigo"
+      color: "primary"
     }
   ];
 
   const colorClasses = {
-    blue:   { gradient: "from-blue-500 to-blue-600",     hover: "hover:shadow-blue-500/25",   border: "border-blue-500/50",   icon: "text-blue-400",   iconHover: "group-hover:text-blue-300" },
-    green:  { gradient: "from-green-500 to-green-600",   hover: "hover:shadow-green-500/25",  border: "border-green-500/50",  icon: "text-green-400",  iconHover: "group-hover:text-green-300" },
-    purple: { gradient: "from-purple-500 to-purple-600", hover: "hover:shadow-purple-500/25", border: "border-purple-500/50", icon: "text-purple-400", iconHover: "group-hover:text-purple-300" },
-    orange: { gradient: "from-orange-500 to-orange-600", hover: "hover:shadow-orange-500/25", border: "border-orange-500/50", icon: "text-orange-400", iconHover: "group-hover:text-orange-300" },
-    pink:   { gradient: "from-pink-500 to-pink-600",     hover: "hover:shadow-pink-500/25",   border: "border-pink-500/50",   icon: "text-pink-400",   iconHover: "group-hover:text-pink-300" },
-    indigo: { gradient: "from-indigo-500 to-indigo-600", hover: "hover:shadow-indigo-500/25", border: "border-indigo-500/50", icon: "text-indigo-400", iconHover: "group-hover:text-indigo-300" }
+    primary: {
+      gradient: "from-[#313E17] to-[#44561f]",
+      hover: "hover:shadow-[#313E17]/25",
+      border: "border-[#313E17]/50",
+      icon: "text-[#313E17]",
+      iconHover: "group-hover:text-[#44561f]"
+    }
   };
 
   useEffect(() => {
@@ -91,31 +92,28 @@ const Services = () => {
 
   return (
     <section id="services" className="services-section min-h-screen bg-gray-900 flex flex-col items-center py-16 px-4 md:ml-64 snap-start relative overflow-hidden">
-      {/* Background */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 right-1/6 w-32 h-32 bg-pink-500/5 rounded-full blur-2xl animate-pulse delay-500"></div>
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-[#313E17]/5 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#313E17]/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 right-1/6 w-32 h-32 bg-[#313E17]/5 rounded-full blur-2xl animate-pulse delay-500"></div>
       </div>
 
       <div className="max-w-7xl w-full relative z-10">
-        {/* Header */}
         <div
           ref={headerRef}
           className={`text-center mb-16 transform transition-all duration-1000 ease-out ${isHeaderVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
         >
           <h1 className="services-heading text-5xl font-light text-white mb-4 tracking-tight relative">
             My Services
-            <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-0.5 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full"></div>
+            <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-0.5 bg-gradient-to-r from-[#313E17] to-[#44561f] rounded-full"></div>
           </h1>
           <p className="services-subtext text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed mt-4">
             Comprehensive digital solutions tailored to bring your ideas to life with cutting-edge technology and creative excellence.
           </p>
         </div>
 
-        {/* Timeline */}
         <div className="relative">
-          <div className="absolute left-4 md:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-600"></div>
+          <div className="absolute left-4 md:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#313E17] via-[#3a4a1b] to-[#44561f]"></div>
 
           <div className="space-y-12">
             {services.map((service, index) => {
@@ -128,43 +126,35 @@ const Services = () => {
                   className={`relative pl-12 md:pl-20 transform transition-all duration-1000 ease-out ${visibleItems.has(service.id) ? 'translate-x-0 opacity-100' : 'translate-x-12 opacity-0'}`}
                   style={{ transitionDelay: `${index * 300}ms` }}
                 >
-                  {/* Timeline dot */}
                   <div className={`services-timeline-dot absolute left-2 md:left-6 top-6 w-4 h-4 bg-gradient-to-r ${colors.gradient} rounded-full border-4 border-gray-900 shadow-lg`}>
                     <div className={`absolute inset-0 bg-gradient-to-r ${colors.gradient} rounded-full animate-ping opacity-75`}></div>
                   </div>
 
-                  {/* ── THE FIX: removed the dark animated-border overlay div entirely.
-                      Instead we use a simple border + box-shadow approach that works in both modes. ── */}
                   <div
                     onMouseEnter={() => setHoveredCard(service.id)}
                     onMouseLeave={() => setHoveredCard(null)}
-                    className={`services-card group rounded-xl shadow-lg border p-6 md:p-8 transition-all duration-500 cursor-pointer transform hover:-translate-y-2 relative overflow-hidden services-card-border-${service.color}`}
+                    className={`services-card group rounded-xl shadow-lg border p-6 md:p-8 transition-all duration-500 cursor-pointer transform hover:-translate-y-2 relative overflow-hidden`}
                   >
-                    {/* Subtle color tint on hover - low opacity so it doesn't obscure content */}
                     <div className={`absolute inset-0 bg-gradient-to-br ${colors.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500 pointer-events-none`}></div>
 
                     <div className="relative z-10">
-                      {/* Icon */}
                       <div className="services-icon-box w-16 h-16 rounded-xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110">
                         <div className={`${colors.icon} ${colors.iconHover} transition-colors duration-300`}>
                           {service.icon}
                         </div>
                       </div>
 
-                      {/* Title */}
                       <h3 className="services-card-title text-xl font-semibold mb-4 transition-colors duration-300">
                         {service.title}
                       </h3>
 
-                      {/* Description */}
                       <p className="services-card-desc mb-6 leading-relaxed transition-colors duration-300">
                         {service.description}
                       </p>
 
-                      {/* Features */}
                       <div className="mb-6">
                         <h4 className="services-feature-title font-medium mb-3 flex items-center gap-2">
-                          <svg className="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <svg className="w-4 h-4 text-[#313E17]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                           </svg>
                           Key Features
@@ -176,17 +166,16 @@ const Services = () => {
                               className={`services-feature-item flex items-start gap-3 text-sm transform transition-all duration-500 ${visibleItems.has(service.id) ? 'translate-x-0 opacity-100' : 'translate-x-4 opacity-0'}`}
                               style={{ transitionDelay: `${(index * 300) + (featureIndex * 100)}ms` }}
                             >
-                              <span className="text-emerald-400 mt-1 flex-shrink-0">●</span>
+                              <span className="text-[#313E17] mt-1 flex-shrink-0">●</span>
                               <span>{feature}</span>
                             </li>
                           ))}
                         </ul>
                       </div>
 
-                      {/* Button */}
                       <button
                         onClick={() => router.push(`/services/${service.id}`)}
-                        className={`services-btn w-full py-3 px-4 rounded-lg transition-all duration-300 relative overflow-hidden group/btn`}
+                        className="services-btn w-full py-3 px-4 rounded-lg transition-all duration-300 relative overflow-hidden group/btn"
                       >
                         <div className={`absolute inset-0 bg-gradient-to-r ${colors.gradient} opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300`}></div>
                         <span className="relative z-10 font-medium group-hover/btn:text-white transition-colors duration-300">Learn More</span>
@@ -199,14 +188,13 @@ const Services = () => {
           </div>
         </div>
 
-        {/* CTA */}
         <div className={`text-center mt-16 transform transition-all duration-1000 delay-500 ${isHeaderVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
           <div className="services-cta-box backdrop-blur-sm rounded-2xl p-8">
             <h3 className="services-cta-title text-2xl font-semibold mb-4">Ready to Start Your Project?</h3>
             <p className="services-cta-text mb-6 max-w-2xl mx-auto">
               Let&apos;s collaborate to bring your vision to life with innovative solutions and exceptional quality.
             </p>
-            <button className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-3 rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+            <button className="bg-gradient-to-r from-[#313E17] to-[#44561f] text-white px-8 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
               Get In Touch
             </button>
           </div>
@@ -214,7 +202,6 @@ const Services = () => {
       </div>
 
       <style jsx>{`
-        /* ── DARK MODE (default) ── */
         .services-section { background: #111827; }
         .services-heading { color: #ffffff; }
         .services-subtext { color: #9ca3af; }
@@ -241,9 +228,8 @@ const Services = () => {
         .services-cta-title { color: #ffffff; }
         .services-cta-text { color: #9ca3af; }
 
-        /* ── LIGHT MODE overrides ── */
         :global(html:not(.dark)) .services-section {
-          background: linear-gradient(135deg, #f0f4ff 0%, #e8eeff 50%, #f5f0ff 100%) !important;
+          background: linear-gradient(135deg, #f6f8f1 0%, #eef2e5 50%, #f8faf4 100%) !important;
         }
         :global(html:not(.dark)) .services-heading { color: #111827 !important; }
         :global(html:not(.dark)) .services-subtext { color: #4b5563 !important; }
@@ -257,7 +243,7 @@ const Services = () => {
           background: rgba(255, 255, 255, 0.98) !important;
           box-shadow: 0 20px 40px rgba(0,0,0,0.12) !important;
         }
-        :global(html:not(.dark)) .services-timeline-dot { border-color: #f0f4ff !important; }
+        :global(html:not(.dark)) .services-timeline-dot { border-color: #f6f8f1 !important; }
         :global(html:not(.dark)) .services-icon-box { background: rgba(243, 244, 246, 0.9) !important; }
         :global(html:not(.dark)) .services-card-title { color: #111827 !important; }
         :global(html:not(.dark)) .services-card-desc { color: #4b5563 !important; }

@@ -25,15 +25,15 @@ export default function About() {
     >
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-32 md:w-64 h-32 md:h-64 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-48 md:w-96 h-48 md:h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 w-16 md:w-32 h-16 md:h-32 bg-pink-500/10 rounded-full blur-2xl animate-pulse delay-500"></div>
+        <div className="absolute top-1/4 left-1/4 w-32 md:w-64 h-32 md:h-64 bg-[#313E17]/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-48 md:w-96 h-48 md:h-96 bg-[#313E17]/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 w-16 md:w-32 h-16 md:h-32 bg-[#313E17]/10 rounded-full blur-2xl animate-pulse delay-500"></div>
       </div>
 
       {/* Page Title */}
       <div className={`transform transition-all duration-1000 delay-200 relative z-10 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}>
         <h1 className="about-heading text-4xl md:text-5xl lg:text-6xl font-light text-white mb-8 lg:mb-12 tracking-tight text-center">
-          About <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Me</span>
+          About <span className="bg-gradient-to-r from-[#313E17] to-[#313E17] bg-clip-text text-transparent">Me</span>
         </h1>
       </div>
 
@@ -80,7 +80,7 @@ export default function About() {
           <div className={`transform transition-all duration-1000 delay-1200 ${isVisible ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-8 opacity-0 scale-95'}`}>
             <div className="about-card bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl lg:rounded-2xl shadow-xl border border-gray-700/50 p-6 lg:p-8 hover:shadow-2xl hover:border-gray-600/50 transition-all duration-500 hover:scale-[1.02] backdrop-blur-sm">
               <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl flex items-center justify-center mr-4 shadow-lg">
+                <div className="w-12 h-12 bg-gradient-to-r from-[#313E17] to-[#44561f] rounded-xl flex items-center justify-center mr-4 shadow-lg">
                   <span className="text-white text-xl">🎓</span>
                 </div>
                 <h3 className="about-card-title text-xl md:text-2xl font-semibold text-white">Education</h3>
@@ -92,7 +92,7 @@ export default function About() {
                     className={`about-card-item flex items-start p-3 rounded-lg bg-gray-700/30 border border-gray-600/30 hover:bg-gray-700/50 transition-all duration-300 transform ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-4 opacity-0'}`}
                     style={{ transitionDelay: `${1400 + index * 200}ms` }}
                   >
-                    <span className="mr-3 text-blue-400 text-lg mt-0.5">▶</span>
+                    <span className="mr-3 text-[#313E17] text-lg mt-0.5">▶</span>
                     <div className="flex-1">
                       <p className="about-card-text font-medium text-gray-200 text-sm md:text-base">{item.degree}</p>
                       <p className="about-card-subtext text-xs md:text-sm text-gray-400 mt-1">{item.status}</p>
@@ -107,7 +107,7 @@ export default function About() {
           <div className={`transform transition-all duration-1000 delay-1600 ${isVisible ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-8 opacity-0 scale-95'}`}>
             <div className="about-card bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl lg:rounded-2xl shadow-xl border border-gray-700/50 p-6 lg:p-8 hover:shadow-2xl hover:border-gray-600/50 transition-all duration-500 hover:scale-[1.02] backdrop-blur-sm">
               <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-600 rounded-xl flex items-center justify-center mr-4 shadow-lg">
+                <div className="w-12 h-12 bg-gradient-to-r from-[#313E17] to-[#44561f] rounded-xl flex items-center justify-center mr-4 shadow-lg">
                   <span className="text-white text-xl">🌐</span>
                 </div>
                 <h3 className="about-card-title text-xl md:text-2xl font-semibold text-white">Languages</h3>
@@ -116,7 +116,7 @@ export default function About() {
                 {languages.map((lang, index) => (
                   <span
                     key={lang}
-                    className={`about-lang-tag bg-gradient-to-r from-gray-700 to-gray-800 text-gray-200 px-3 md:px-4 py-2 rounded-full text-xs md:text-sm font-medium hover:from-blue-500/20 hover:to-purple-500/20 hover:border-blue-400/50 transition-all duration-300 border border-gray-600/50 cursor-default transform ${isVisible ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-2 opacity-0 scale-95'}`}
+                    className={`about-lang-tag bg-gradient-to-r from-gray-700 to-gray-800 text-gray-200 px-3 md:px-4 py-2 rounded-full text-xs md:text-sm font-medium hover:from-[#313E17]/20 hover:to-[#313E17]/10 hover:border-[#313E17]/50 transition-all duration-300 border border-gray-600/50 cursor-default transform ${isVisible ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-2 opacity-0 scale-95'}`}
                     style={{ transitionDelay: `${1800 + index * 100}ms` }}
                   >
                     {lang}
@@ -130,18 +130,18 @@ export default function About() {
           <div className={`transform transition-all duration-1000 delay-2000 ${isVisible ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-8 opacity-0 scale-95'}`}>
             <div className="about-card bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl lg:rounded-2xl shadow-xl border border-gray-700/50 p-6 lg:p-8 hover:shadow-2xl hover:border-gray-600/50 transition-all duration-500 hover:scale-[1.02] backdrop-blur-sm">
               <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-blue-600 rounded-xl flex items-center justify-center mr-4 shadow-lg">
+                <div className="w-12 h-12 bg-gradient-to-r from-[#313E17] to-[#44561f] rounded-xl flex items-center justify-center mr-4 shadow-lg">
                   <span className="text-white text-xl">⚡</span>
                 </div>
                 <h3 className="about-card-title text-xl md:text-2xl font-semibold text-white">Quick Facts</h3>
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div className="about-stat-box text-center p-3 bg-gray-700/30 rounded-lg border border-gray-600/30 hover:bg-gray-700/50 transition-all duration-300">
-                  <div className="text-2xl md:text-3xl font-bold text-blue-400 mb-1">5+</div>
+                  <div className="text-2xl md:text-3xl font-bold text-[#313E17] mb-1">5+</div>
                   <div className="about-stat-label text-xs md:text-sm text-gray-400">Years Experience</div>
                 </div>
                 <div className="about-stat-box text-center p-3 bg-gray-700/30 rounded-lg border border-gray-600/30 hover:bg-gray-700/50 transition-all duration-300">
-                  <div className="text-2xl md:text-3xl font-bold text-purple-400 mb-1">50+</div>
+                  <div className="text-2xl md:text-3xl font-bold text-[#313E17] mb-1">50+</div>
                   <div className="about-stat-label text-xs md:text-sm text-gray-400">Projects Completed</div>
                 </div>
               </div>
@@ -152,7 +152,7 @@ export default function About() {
 
       <style jsx>{`
         :global(html:not(.dark)) .about-section {
-          background: linear-gradient(135deg, #f0f4ff 0%, #e8eeff 50%, #f5f0ff 100%) !important;
+          background: linear-gradient(135deg, #f6f8f1 0%, #eef2e5 50%, #f8faf4 100%) !important;
         }
         :global(html:not(.dark)) .about-heading { color: #111827 !important; }
         :global(html:not(.dark)) .about-subheading { color: #111827 !important; }
